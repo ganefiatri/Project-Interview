@@ -21,16 +21,13 @@ const deleteHandler = async (req:any, res:any) => {
     await db.connect();
     const user:any = await User.findById(req.query.id);
     if(user){
-        if(user.email === 'admin@tejdelicias.com' || user.email === 'tatiana@tejdelicias.com' ){
-          return res.status(400).send({message: "ATENÇÂO!!! Você não pode deletar esse usuário administrador!."}); 
-        }
-    await user.deleteOne();
-    await db.disconnect();
-    res.send({message: 'Usuário deletado com sucesso!'});
-}else {
-    await db.disconnect();
-    res.status(404).send({message: 'Usuário não encontrado!'});
- }
+        await user.deleteOne();
+        await db.disconnect();
+        res.send({message: 'User Delete successfully!'});
+    }else {
+        await db.disconnect();
+        res.status(404).send({message: 'User not found!'});
+    }
 
 };
 
