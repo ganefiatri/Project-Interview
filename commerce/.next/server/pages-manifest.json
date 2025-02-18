@@ -3,13 +3,6 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/admin/users": "pages/admin/users.js",
-  "/login": "pages/login.js",
-  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
-  "/": "pages/index.js",
-  "/admin/dashboard": "pages/admin/dashboard.js",
-  "/api/admin/summary": "pages/api/admin/summary.js",
   "/admin/products": "pages/admin/products.js",
-  "/api/admin/products": "pages/api/admin/products.js",
-  "/api/admin/users": "pages/api/admin/users.js",
-  "/api/admin/users/[id]": "pages/api/admin/users/[id].js"
+  "/admin/dashboard": "pages/admin/dashboard.js"
 }
