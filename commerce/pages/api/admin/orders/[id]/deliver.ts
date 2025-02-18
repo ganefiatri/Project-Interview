@@ -1,14 +1,14 @@
 import db from "@/utils/db"
 import Order from '@/models/Order';
-// import { getSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
 
 
 
 const handler = async (req:any, res:any) => {
-    // const session:any = await getSession({ req });
-    // if (!session || (session && !session.user.isAdmin)) {
-    //     return res.status(401).send('Error: Signin required')
-    // }
+    const session:any = await getSession({ req });
+    if (!session || (session && !session.user.isAdmin)) {
+        return res.status(401).send('Error: Signin required')
+    }
 await db.connect();
 const order = await  Order.findById(req.query.id)
 if(order){
