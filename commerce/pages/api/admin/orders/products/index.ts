@@ -1,13 +1,13 @@
-import { getSession } from "next-auth/react";
+// import { getSession } from "next-auth/react";
 import Product from "@/models/Product";
 import db from "@/utils/db";
 
 const handler = async (req:any, res:any) => {
-    const session:any = await getSession({req});
-    if (!session || !session.user.isAdmin){
-        return res.status(401).send('admin signin required');
+    // const session:any = await getSession({req});
+    // if (!session || !session.user.isAdmin){
+    //     return res.status(401).send('admin signin required');
 
-    }
+    // }
    // const { user } = session;
     if (req.method === 'GET'){
         return getHandler(req, res);
