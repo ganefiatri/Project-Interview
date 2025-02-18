@@ -99,10 +99,10 @@ const AdminProductEditScreen = () => {
        try{
         dispatch({type:'UPDATE_REQUEST'});
         await axios.put(`/api/admin/products/${productId}`, {
-            name, slug, price, category, image, flavor, countInStock,description   
+            name, slug, price, category, image, flavor, countInStock, description   
         });
         dispatch({type:'UPDATE_SUCCESS'});
-        toast.success('Produto atualizado com sucesso!')
+        toast.success('Product updated successfully!')
         router.push('/admin/products');
        }catch(err){
         dispatch({type:'UPDATE_FAIL', payload: getError(err)});
@@ -117,19 +117,19 @@ const AdminProductEditScreen = () => {
                     <ul>
                     <li>
                         <Link className='text-indigo' href="/admin/dashboard">
-                            <p>Painel Principal</p>
+                            <p>Admin Panel</p>
                         </Link>
                     </li>
                     <li>
                         <Link className='text-indigo' href='/admin/orders'>
-                            <p >Ordens de Pagamento</p>
+                            <p >Payment Orders</p>
                          </Link>
                     </li>
                     <li>
-                        <Link className='text-indigo' href='/admin/products'><p className='font-bold text-xl'>Produtos</p></Link>
+                        <Link className='text-indigo' href='/admin/products'><p className='font-bold text-xl'>Product</p></Link>
                     </li>
                     <li>
-                        <Link className='text-indigo' href='/admin/users'>Usuários</Link>
+                        <Link className='text-indigo' href='/admin/users'>User</Link>
                     </li>
                     
                 </ul>
@@ -144,13 +144,13 @@ const AdminProductEditScreen = () => {
                             <h1 className='mb-4 text-3xl font-semibold'>{` Produto ${productId}`}</h1>
                             <div className='bg-white rounded-md bg-opacity-80 m-2 p-2'>
                             <div className='mb-4'>
-                                <label htmlFor='name' >Nome</label>
+                                <label htmlFor='name' >Name</label>
                                 <input 
                                 type='text' 
                                 className='w-full' 
                                 id='name' 
                                 autoFocus 
-                                {...register('name',{required: 'Insira o nome do produto'})}
+                                {...register('name',{required: 'Enter product name'})}
                                 />
                                {errors.name && (<div className='text-red'>{errors.name.message}</div>)}
                             </div>
@@ -161,29 +161,29 @@ const AdminProductEditScreen = () => {
                                 className='w-full' 
                                 id='slug' 
                                 
-                                {...register('slug',{required: 'Insira o slug do produto'})}
+                                {...register('slug',{required: 'Enter product slug'})}
                                 />
                                {errors.slug && (<div className='text-red'>{errors.slug.message}</div>)}
                             </div>
                             <div className='mb-4'>
-                                <label htmlFor='price' >Preço</label>
+                                <label htmlFor='price' >Price</label>
                                 <input 
                                 type='text' 
                                 className='w-full' 
                                 id='price' 
                                 
-                                {...register('price',{required: 'Insira o preço do produto'})}
+                                {...register('price',{required: 'Enter the product price'})}
                                 />
                                {errors.price && (<div className='text-red'>{errors.price.message}</div>)}
                             </div>
                             <div className='mb-4'>
-                                <label htmlFor='image' >Imagem</label>
+                                <label htmlFor='image' >Images</label>
                                 <input 
                                 type='text' 
                                 className='w-full' 
                                 id='image' 
                                 
-                                {...register('image',{required: 'Insira a imagem do produto'})}
+                                {...register('image',{required: 'Insert product image'})}
                                 />
                                {errors.image && (<div className='text-red'>{errors.image.message}</div>)}
                             </div>
@@ -193,46 +193,46 @@ const AdminProductEditScreen = () => {
                                 {loadingUpload && <div></div>}
                             </div>
                             <div className='mb-4'>
-                                <label htmlFor='category' >Categoria</label>
+                                <label htmlFor='category' >Category</label>
                                 <input 
                                 type='text' 
                                 className='w-full' 
                                 id='category' 
                                 
-                                {...register('category',{required: 'Insira a categoria do produto'})}
+                                {...register('category',{required: 'Enter the product category'})}
                                 />
                                {errors.category && (<div className='text-red'>{errors.category.message}</div>)}
                             </div>
                             <div className='mb-4'>
-                                <label htmlFor='brand' >Sabor</label>
+                                <label htmlFor='flavor' >Flavor</label>
                                 <input 
                                 type='text' 
                                 className='w-full' 
                                 id='flavor' 
                                 
-                                {...register('flavor',{required: 'Insira o sabor do produto'})}
+                                {...register('flavor',{required: 'Enter the flavor of the product'})}
                                 />
                                {errors.flavor && (<div className='text-red'>{errors.flavor.message}</div>)}
                             </div>
                             <div className='mb-4'>
-                                <label htmlFor='countInStock' >Em Stock</label>
+                                <label htmlFor='countInStock' >Stock</label>
                                 <input 
                                 type='text' 
                                 className='w-full' 
                                 id='countInStock' 
                                 
-                                {...register('countInStock',{required: 'Insira a quantidade em stock do produto'})}
+                                {...register('countInStock',{required: 'Enter the quantity in stock of the product'})}
                                 />
                                {errors.countInStock && (<div className='text-red'>{errors.countInStock.message}</div>)}
                             </div>
                             <div className='mb-4'>
-                                <label htmlFor='image' >Descrição</label>
+                                <label htmlFor='image' >Description</label>
                                 <input 
                                 type='text' 
                                 className='w-full' 
                                 id='description' 
                                 
-                                {...register('description',{required: 'Insira a descrição do produto'})}
+                                {...register('description',{required: 'Enter product description'})}
                                 />
                                {errors.description && (<div className='text-red'>{errors.description.message}</div>)}
                             </div>

@@ -77,32 +77,32 @@ const AdminUserScreen = () => {
 }
 
   return (
-    <Layout title='Usuário Admin'>
+    <Layout title='User Admin'>
 
 <div className="grid md:grid-cols-4 md:gap-5">
         <div>
       <ul>
                     <li>
                         <Link className='text-indigo' href="/admin/dashboard">
-                            <p>Painel Principal</p>
+                            <p>Admin Panel</p>
                         </Link>
                     </li>
                     <li>
                         <Link className='text-indigo' href='/admin/orders'>
-                            <p >Ordens de Pagamento</p>
+                            <p >Payment Order</p>
                          </Link>
                     </li>
                     <li>
-                        <Link className='text-indigo' href='/admin/products'><p >Produtos</p></Link>
+                        <Link className='text-indigo' href='/admin/products'><p >Product</p></Link>
                     </li>
                     <li>
-                        <Link className='text-indigo' href='/admin/users'><p className='font-bold text-xl'>Usuários</p></Link>
+                        <Link className='text-indigo' href='/admin/users'><p className='font-bold text-xl'>User</p></Link>
                     </li>
                     
                 </ul>
             </div>
             <div className='overflow-x-auto md:col-span-3'>
-                <h1 className='mb-4 text-3xl font-semibold'>Usuários</h1>
+                <h1 className='mb-4 text-3xl font-semibold'>USERS</h1>
                 {loadingDelete && <div>Deleting...</div>}
                 {loading ? (
                  <div>Loading...</div>
@@ -114,10 +114,10 @@ const AdminUserScreen = () => {
                         <thead>
                             <tr>
                                 <th className='px-5 text-left'>ID</th>
-                                <th className='p-5 text-left'>NOME</th>
+                                <th className='p-5 text-left'>NAME</th>
                                 <th className='p-5 text-left'>EMAIL</th>
                                 <th className='p-5 text-left'>ADMIN</th>
-                                <th className='p-5 text-left'>AÇÕES</th>
+                                <th className='p-5 text-left'>ACTION</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -130,11 +130,11 @@ const AdminUserScreen = () => {
                                     <td className='p-5'>{user.isAdmin ? 'YES' : 'NO'}</td>
                                     <td className='p-5'>
                                         <Link type='button' className='edit-button' href={`/admin/user/${user._id}`} passHref>
-                                            Editar
+                                            Edit
                                         </Link>
                                         &nbsp;
                                         <button type='button' className='delete-button' onClick={() => deleteHandler(user._id)}>
-                                            Deletar
+                                            Delete
                                         </button>
                                     </td>
                                 </tr>

@@ -105,7 +105,7 @@ useEffect(()=>{
                 <ul>
                     <li>
                         <Link className='text-indigo' href="/admin/dashboard">
-                            <p className='font-bold text-xl'>Painel Principal</p>
+                            <p className='font-bold text-xl'>Panel Admin</p>
                         </Link>
                     </li>
                     <li>
@@ -115,13 +115,13 @@ useEffect(()=>{
                         <Link className='text-indigo' href='/admin/products'>Product</Link>
                     </li>
                     <li>
-                        <Link className='text-indigo' href='/admin/users'>Usuários</Link>
+                        <Link className='text-indigo' href='/admin/users'>User</Link>
                     </li>
                     
                 </ul>
             </div>
             <div className='md:col-span-3'>
-                <h1 className='mb-4 text-xl'>Painel do Administrador</h1>
+                <h1 className='mb-4 text-xl'>Admin Panel</h1>
                  {loading ? (
                  <div>Loading...</div>
                  ): error ? (
@@ -129,29 +129,29 @@ useEffect(()=>{
                  ):(
                  <div>
                     <div className="grid grid-cols-1 md:grid-cols-4 ">
-                        <div className='card m-5 p-5 bg-white rounded-md bg-opacity-80 m-2 p-2'>
+                        <div className='card bg-white rounded-md bg-opacity-80 m-2 p-2'>
                             <p className='text-3xl'>${summary.ordersPrice}</p>
-                            <p>Vendas</p>
-                            <Link className='text-indigo' href='/admin/sells'>Ver vendas</Link>
+                            <p>Vendor</p>
+                            <Link className='text-indigo' href='/admin/sells'>Lihat Vendor</Link>
                         </div>
-                        <div className='card m-5 p-5 bg-white rounded-md bg-opacity-80 m-2 p-2'>
+                        <div className='card bg-white rounded-md bg-opacity-80 m-2 p-2'>
                             <p className='text-3xl'>{summary.ordersCount}</p>
-                            <p>Ordens</p>
-                            <Link className='text-indigo bg-white rounded-md bg-opacity-80 m-2 p-2' href='/admin/orders'>Ver Ordens</Link>
+                            <p>Orders</p>
+                            <Link className='text-indigo bg-white rounded-md bg-opacity-80 m-2 p-2' href='/admin/orders'>Lihat Order</Link>
                         </div>
-                        <div className='card m-5 p-5 bg-white rounded-md bg-opacity-80 m-2 p-2'>
+                        <div className='card bg-white rounded-md bg-opacity-80 m-2 p-2'>
                             <p className='text-3xl'>{summary.productsCount}</p>
-                            <p>Produtos</p>
-                            <Link className='text-indigo'  href='/admin/products'>Ver Produtos</Link>
+                            <p>Product</p>
+                            <Link className='text-indigo'  href='/admin/products'>Lihat Product</Link>
                         </div>
-                        <div className='card m-5 p-5 bg-white rounded-md bg-opacity-80 m-2 p-2'>
+                        <div className='card bg-white rounded-md bg-opacity-80 m-2 p-2'>
                             <p className='text-3xl'>{summary.usersCount}</p>
-                            <p>Usuários</p>
-                            <Link className='text-indigo' href='/admin/users'>Ver Usuários</Link>
+                            <p>Pengguna</p>
+                            <Link className='text-indigo' href='/admin/users'>Lihat Pengguna</Link>
                         </div>
                         
                     </div>
-                    <h2 className='text-xl'>Relatório de Vendas</h2>
+                    <h2 className='text-xl'>Laporan Penjualan</h2>
                     <div className='bg-white rounded-md bg-opacity-80 m-2 p-2'>
                     <Bar options={options}
                          data={data}/>
@@ -164,5 +164,5 @@ useEffect(()=>{
   )
 }
 
-AdminDashboardScreen.auth = { adminOnly:false };
+AdminDashboardScreen.auth = { adminOnly:true };
 export default AdminDashboardScreen

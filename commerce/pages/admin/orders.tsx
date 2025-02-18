@@ -48,25 +48,25 @@ console.log(orders)
                 <ul>
                     <li>
                         <Link className='text-indigo' href="/admin/dashboard">
-                            <p>Painel Principal</p>
+                            <p>Admin Panel</p>
                         </Link>
                     </li>
                     <li>
                         <Link className='text-indigo' href='/admin/orders'>
-                            <p className='font-bold text-xl'>Ordens de Pagamento</p>
+                            <p className='font-bold text-xl'>Order</p>
                          </Link>
                     </li>
                     <li>
-                        <Link className='text-indigo' href='/admin/products'>Produtos</Link>
+                        <Link className='text-indigo' href='/admin/products'>Product</Link>
                     </li>
                     <li>
-                        <Link className='text-indigo' href='/admin/users'>Usuários</Link>
+                        <Link className='text-indigo' href='/admin/users'>User</Link>
                     </li>
                     
                 </ul>
             </div>
           <div className='overflow-x-auto md:col-span-3 '>
-                <h1 className='mb-4 text-3xl font-semibold'>Ordens</h1>
+                <h1 className='mb-4 text-3xl font-semibold'>Order</h1>
                 <div className='bg-white rounded-md bg-opacity-80 m-2 p-2'>
                 {loading ? (
                  <div>Loading...</div>
@@ -78,12 +78,12 @@ console.log(orders)
                         <thead className='border-b'>
                             <tr>
                                 <th className='px-5 text-left'>ID</th>
-                                <th className='p-5 text-left'>USUÁRIO</th>
+                                <th className='p-5 text-left'>USERS</th>
                                 <th className='p-5 text-left'>DATA</th>
                                 <th className='p-5 text-left'>TOTAL</th>
-                                <th className='p-5 text-left'>PAGAMENTO</th>
-                                <th className='p-5 text-left'>ENTREGA</th>
-                                <th className='p-5 text-left'>AÇÃO</th>
+                                <th className='p-5 text-left'>PAYMENT</th>
+                                <th className='p-5 text-left'>DELIVERY</th>
+                                <th className='p-5 text-left'>ACTION</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -92,15 +92,15 @@ console.log(orders)
                                 <tr key={order._id} className='border-b'>
                                     <td className='p-5'>{order._id.substring(20,24)}</td>
                                     <td className='p-5'>
-                                        {order.user ? order.user.name : 'Usuário Deletado '}
+                                        {order.user ? order.user.name : 'User Not Found '}
                                     </td>
                                     <td className='p-5'>
                                         {order.createdAt.substring(0, 10)}
                                     </td>
-                                    <td className='p-5'>R${order.totalPrice}</td>
-                                    <td className='p-5'>{order.isPaid ? `${order.paidAt.substring(0,10)}`: 'Não Pago'}</td>
-                                    <td className='p-5'>{order.isDeliveredAt ? `${order.isDeliveredAt.substring(0,10)}`:'Não Entregue' }</td>
-                                    <td className='p-5'><Link href={`/order/${order._id}`} passHref><p className='text-indigo '>Detalhes</p></Link></td>
+                                    <td className='p-5'>Rp{order.totalPrice}K</td>
+                                    <td className='p-5'>{order.isPaid ? `${order.paidAt.substring(0,10)}`: 'No Payment'}</td>
+                                    <td className='p-5'>{order.isDeliveredAt ? `${order.isDeliveredAt.substring(0,10)}`:'Do Not Deliver' }</td>
+                                    <td className='p-5'><Link href={`/order/${order._id}`} passHref><p className='text-indigo '>Detail</p></Link></td>
                                 </tr>
                             ))}
                         </tbody>

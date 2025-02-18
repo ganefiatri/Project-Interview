@@ -89,7 +89,7 @@ const Layout = ({title, children}:any) => {
                                 {session.user.isAdmin && (
                             <Menu.Item>
                             <DropdownLink className='dropdown-link' href="/admin/dashboard">
-                              Painel Admin
+                              Admin Panel
                             </DropdownLink>
                             </Menu.Item>
                             )}

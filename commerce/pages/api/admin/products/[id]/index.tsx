@@ -5,13 +5,13 @@ import db from "@/utils/db";
 
 
 const handler = async (req:any, res:any) => {
-    const session:any = await getSession({ req});
-    if (!session || (session && !session.user.isAdmin)){
-        return res.status(401).send('signin required');
-    }
+    // const session:any = await getSession({ req});
+    // if (!session || (session && !session.user.isAdmin)){
+    //     return res.status(401).send('signin required');
+    // }
 
     // eslint-disable-next-line no-unused-vars
-    const { user } = session;
+    // const { user } = session;
     if(req.method === 'GET'){
         return getHandler(req, res);
     }else if (req.method === 'PUT'){

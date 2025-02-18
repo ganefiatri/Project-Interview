@@ -21,14 +21,15 @@ const handler = async (req:any, res:any) => {
 const postHandler = async (req:any, res:any) => {
     await db.connect();
     const newProduct = new Product({
-        name:'Insira o o nome do produto',
-        slug: 'insira-slug-sem-espaço-minusculas-sem-acentos' + Math.random(),
-        image: 'Insira imagem com H:850px X W:700px',
+        name:'Enter the product name',
+        slug: 'insert-slug-no-space-lowercase-no-accents' + Math.random(),
+        image: 'Insert image with H:850px X W:700px',
         price: 0,
-        category: 'insira a categoria com letras minusculas e sem espaços',
-        flavor: 'insira o sabor do produto',
+        brand: 'Insert brand name',
+        category: 'Enter the category with lowercase letters and no spaces',
+        flavor: 'enter the flavor of the product',
         countInStock: 0,
-        description: 'Insira a descrição do produto',
+        description: 'Enter product description',
         rating: 0,
         numReviews: 0,
     });

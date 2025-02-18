@@ -10,7 +10,6 @@ import { toast } from 'react-toastify';
 const Home = ({products}:{products:any}) => {
   const {state, dispatch} = useContext(StoreContext)
   const { cart } = state
-  console.log(products)
   const addToCartHandler = async(product:any) => {
     //logic to add same iten to Cart
     const existItem = cart.cartItems.find((x:any) => x.slug === product.slug)

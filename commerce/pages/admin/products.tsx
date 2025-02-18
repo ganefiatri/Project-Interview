@@ -44,14 +44,14 @@ const AdminProductsScreen = () => {
     });
 
     const createHandler = async () => {
-        if(!window.confirm('Você tem certeza?')){
-            return;
-        }
+        // if(!window.confirm('Are you sure ?')){
+        //     return;
+        // }
         try{
             dispatch({type:'CREATE_REQUEST'});
             const { data } = await axios.post(`/api/admin/products`);
             dispatch({type: 'CREATE_SUCCESS'});
-            toast.success('Produto criado com sucesso!')
+            toast.success('Sucessfully create Product!')
             router.push(`/admin/product/${data.product._id}`);
         }catch(err){
             dispatch({type: 'CREATE_FAIL'});
@@ -94,38 +94,38 @@ const AdminProductsScreen = () => {
              }  
     }
   return (
-    <Layout title='Produtos Admin'>
+    <Layout title='Product Admin'>
       <div className="grid md:grid-cols-4 md:gap-5">
         <div>
       <ul>
                     <li>
                         <Link className='text-indigo' href="/admin/dashboard">
-                            <p>Painel Principal</p>
+                            <p>Admin Panel</p>
                         </Link>
                     </li>
                     <li>
                         <Link className='text-indigo' href='/admin/orders'>
-                            <p >Ordens de Pagamento</p>
+                            <p >Payment</p>
                          </Link>
                     </li>
                     <li>
-                        <Link className='text-indigo' href='/admin/products'><p className='font-bold text-xl'>Produtos</p></Link>
+                        <Link className='text-indigo' href='/admin/products'><p className='font-bold text-xl'>Product</p></Link>
                     </li>
                     <li>
-                        <Link className='text-indigo' href='/admin/users'><p >Usuários</p></Link>
+                        <Link className='text-indigo' href='/admin/users'><p >User</p></Link>
                     </li>
                     
                 </ul>
             </div>
             <div className='overflow-x-auto md:col-span-3'>
                 <div className='flex justify-between'>
-                   <h1 className='mb-4 text-3xl font-semibold'>Produtos</h1>
+                   <h1 className='mb-4 text-3xl font-semibold'>Product</h1>
                    {loadingDelete && <div>Deleting item...</div>}
                    <button 
                         disabled={loadingCreate} 
                         onClick={createHandler} 
                         className='primary-button'
-                        >{loadingCreate ? 'Loading': 'Criar Produto'}
+                        >{loadingCreate ? 'Loading': 'Create Product'}
                      </button>
                 </div>
                 
@@ -139,12 +139,12 @@ const AdminProductsScreen = () => {
                        <thead className='border-b'>
                        <tr>
                                 <th className='px-5 text-left'>ID</th>
-                                <th className='p-5 text-left'>NOME</th>
-                                <th className='p-5 text-left'>PREÇO</th>
-                                <th className='p-5 text-left'>CATEGORIA</th>
-                                <th className='p-5 text-left'>QUANTIDADE</th>
+                                <th className='p-5 text-left'>NAME</th>
+                                <th className='p-5 text-left'>PRICE</th>
+                                <th className='p-5 text-left'>CATEGORY</th>
+                                <th className='p-5 text-left'>QUANTITY</th>
                                 <th className='p-5 text-left'>RATING</th>
-                                <th className='p-5 text-left'>AÇÕES</th>
+                                <th className='p-5 text-left'>ACTION</th>
                             </tr>
                        </thead> 
                        <tbody>
@@ -152,13 +152,13 @@ const AdminProductsScreen = () => {
                             <tr key={product._id} className='border-b'>
                                 <td className='p-5'>{product._id}</td>
                                 <td className='p-5'>{product.name}</td>
-                                <td className='p-5'>R$ {product.price}</td>
+                                <td className='p-5'>Rp {product.price}K</td>
                                 <td className='p-5'>{product.category}</td>
                                 <td className='p-5'>{product.countInStock}</td>
                                 <td className='p-5'>{product.rating}</td>
                                 <td className='p-5 flex '>
                                     <div>
-                                    <Link className='edit-button' href={`/admin/product/${product._id}`} passHref >Editar</Link> &nbsp; 
+                                    <Link className='edit-button' href={`/admin/product/${product._id}`} passHref >Edit</Link> &nbsp; 
                                     </div>
                                     <div>
                                     <button onClick={()=> deleteHandler(product._id)} className='delete-button'>

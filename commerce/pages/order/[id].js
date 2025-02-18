@@ -194,7 +194,7 @@ const OrderScreen  = () => {
                               <td className='p-5 text-right'>{item.quantity}</td>
                               <td className='p-5 text-right'>{item.price}</td>
                               <td className='p-5 text-right'>
-                                R${item.quantity * item.price}
+                                Rp{item.quantity * item.price}K
                               </td>
                             </tr>
                         ))}
@@ -209,25 +209,25 @@ const OrderScreen  = () => {
                              <li>
                                 <div className='mb-2 flex justify-between'>
                                     <div>Items</div>
-                                    <div>R${itemsPrice}</div>
+                                    <div>Rp{itemsPrice}K</div>
                                 </div>
                              </li>
                              <li>{''}
                                 <div className='mb-2 flex justify-between'>
                                     <div>Tax</div>
-                                    <div>R${taxPrice}</div>
+                                    <div>Rp{taxPrice}K</div>
                                 </div>
                              </li>
                              <li>{''}
                                 <div className='mb-2 flex justify-between'>
                                     <div>Shipping</div>
-                                    <div>R${shippingPrice}</div>
+                                    <div>Rp{shippingPrice}K</div>
                                 </div>
                              </li>
                              <li>{''}
                                 <div className='mb-2 flex justify-between'>
                                     <div>Total</div>
-                                    <div>R${totalPrice}</div>
+                                    <div>Rp{totalPrice}K</div>
                                 </div>
                              </li>
                               {!isPaid && (
