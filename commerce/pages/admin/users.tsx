@@ -61,7 +61,7 @@ const AdminUserScreen = () => {
     },[successDelete])
 
     const deleteHandler = async (userId:any) => {
-        if(!window.confirm('Você tem certeza?!')){
+        if(!window.confirm('Are You Sure!')){
            return;
         } 
         try{
